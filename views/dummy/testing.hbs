@@ -1,0 +1,41 @@
+{{#if empty_msg}}
+<h3 class="empty-msg" > {{empty_msg}} </h3>
+{{/if}}
+
+{{#each questions}}
+<div class="dummy-qn-body" >
+    <h4> {{this.username}} </h4>
+    <p>{{this.qn_text}}</p>
+    <div style="width:40%;display:flex;justify-content:space-between;height:45px;flex-direction: column;" >
+        <div style="display:flex;justify-content: space-between; width:76%;margin-bottom: 5px;" >
+            <a href="/dummy/answers/{{this.qn_id}}" >Answers <span class="dummy-badge bg-secondary"> {{this.ans_count}} </span> </a>
+            <button id="showAnswerButton" onclick="showAnswerBox({{this.qn_id}})" >Write Answer</button>
+        </div>
+        <form action="/post-ans" method="POST" style="display:none;" id="{{this.qn_id}}">
+        <input type="text" value="{{this.qn_id}}" name="qn_id" id="qn_id" hidden>
+        <input type="text" value="{{../user.user_id}}" name="user_id" id="user_id" hidden>
+        <textarea name="ans_text" id="" cols="70" rows="2" placeholder="Enter an answer" id="ans_text"></textarea>
+        <input type="submit" value="Post" style="margin-left: 5px;" >
+        </form>
+    </div>
+        
+    
+</div>
+{{/each}}
+
+{{!-- <form action="/post-ans" method="POST">
+        <input type="text" value="{{this.qn_id}}" name="qn_id" id="qn_id" hidden>
+        <input type="text" value="{{../user.user_id}}" name="user_id" id="user_id" hidden>
+        <textarea name="ans_text" id="" cols="70" rows="2" placeholder="Enter an answer" id="ans_text"></textarea>
+        <input type="submit" value="Post">
+</form> --}}
+
+<script>
+    function showAnswerBox(qnId){
+        qnId = qnId.toString()
+        document.getElementById(qnId).style.display = 'flex';
+        
+    }
+
+
+</script>

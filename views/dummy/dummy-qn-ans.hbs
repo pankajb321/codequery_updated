@@ -1,0 +1,24 @@
+<div class='dummy-qn-form'>
+    <form action="/ask-qn" method="POST">
+        <label for="qn">Ask your question</label> <br>
+        <textarea name="questionText" id="qn" cols="30" rows="10"></textarea> <br>
+        
+        <input type="number" name="userId" value="{{user.user_id}}" id="" hidden>
+        
+        <input type="radio" name="category" value="web_dev" id="web">
+        <label for="web">Web Dev</label>
+
+        <input type="radio" name="category" value="ai" id="ai">
+        <label for="ai">AI</label>
+
+        <input type="radio" name="category" value="cyber_sec" id="cyber">
+        <label for="cyber">Cyber Sec</label>
+
+        <input type="radio" name="category" value="testing" id="test">
+        <label for="test">Software Testing</label>
+        <br>
+        <input type="submit" value="Ask Question">
+    </form>
+    <a href="/home/dummy-qn" >See questions</a>
+    <a href="/dummy/myquestions">See my questions</a>
+</div>

@@ -1,0 +1,15 @@
+<div class="dummy-qn-body" >
+    <h3> Q. {{question.qn_text}}</h3> <br>
+    {{#if empty_msg}}
+        <h4> {{empty_msg}} </h4>
+    {{/if}}
+    {{#each answers}}
+    <div>
+        <h4> By: {{this.username}}</h4>
+        <p> {{this.ans_date}} </p>
+        <p> A. {{this.ans_text}}</p> <br> <br>
+    </div>
+    {{/each}}
+
+    
+</div>

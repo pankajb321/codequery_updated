@@ -1,0 +1,21 @@
+<nav>
+    <div class="logo">C<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/animat-day-night.gif"
+                id="logofork" alt=""></span>&nbsp;deQuery</div>
+
+
+
+
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn">
+        <i class="fa fa-bars"></i>
+    </label>
+    <ul>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/qa">Q&A</a></li>
+        <li><a href="/about">About</a></li>
+        {{#if user}}
+        <li><a href="/home" class="logout-btn" style="background-color: green;"> {{user.username}} </a></li>
+        <li><a href="/logout" class="logout-btn">Logout</a></li>
+        {{/if}}
+    </ul>
+</nav>
