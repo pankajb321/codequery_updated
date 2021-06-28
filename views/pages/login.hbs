@@ -1,5 +1,5 @@
-<div class="container">
-	<form action="/home" method="POST" class="login-email" >
+<div class="container0">
+	<form action="/login" method="POST" class="login-email" >
 		<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login :)</p>
 		<div class="input-group">
 			<input type="email" placeholder="Email" name="email"  required>
@@ -8,8 +8,8 @@
 			<input type="password" placeholder="Password" name="password" 
 				required>
 		</div>
-		{{#if loginErr}}
-			<p style="color: red;" > {{loginErr}} </p>
+		{{#if errorMessage}}
+			<p style="color: red;" > {{errorMessage}} </p>
 		{{/if}}
 		
 		<div class="input-group">

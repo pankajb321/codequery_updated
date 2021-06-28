@@ -14,8 +14,8 @@
         <li><a href="/qa">Q&A</a></li>
         <li><a href="/about">About</a></li>
         {{#if user}}
-        <li><a href="/home" class="logout-btn" style="background-color: green;"> {{user.username}} </a></li>
-        <li><a href="/logout" class="logout-btn">Logout</a></li>
+        <li><a href="/home" class="btn btn-primary" style="background-color: green;"> {{user}} </a></li>
+        <li><a href="/logout" class="btn btn-danger">Logout</a></li>
         {{/if}}
     </ul>
 </nav>
