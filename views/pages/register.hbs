@@ -15,8 +15,8 @@
             <input type="password" placeholder="Confirm Password" name="cpassword"
                 required>
         </div>
-        {{#if err_msg}}
-        <p style="color: red;text-align:center;margin-top:-20px;" >{{err_msg}} </p>
+        {{#if errorMessage}}
+        <p style="color: red;text-align:center;margin-top:-20px;" >{{errorMessage}} </p>
         {{/if}}
         <div class="input-group">
             <button name="submit" class="btn">Register</button>

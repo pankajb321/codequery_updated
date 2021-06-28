@@ -12,7 +12,7 @@ var verifyLogin = (req, res, next) => {
 
 /* GET home page. */
 router.get("/home", verifyLogin, (req, res) => {
-  res.render("pages/home",{user:req.session.user.username});
+  res.render("pages/home", { user: req.session.user.username });
 });
 
 router.get("/", (req, res) => {
@@ -44,7 +44,29 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/register", (req, res) => {
-  res.render("pages/register");
+  if (req.session.userLoggedIn) {
+    res.redirect("/home");
+  } else {
+    res.render("pages/register", {
+      errorMessage: req.session.registerErrorMessage,
+    });
+    req.session.registerErrorMessage = null;
+  }
+});
+
+router.post("/register", (req, res) => {
+  functionHelper
+    .doSignup(req.body)
+    .then((user) => {
+      req.session.user = user;
+      req.session.userLoggedIn = true;
+      res.redirect("/home");
+    })
+    .catch((errorMessage) => {
+      req.session.signUpError = true;
+      req.session.registerErrorMessage = errorMessage;
+      res.redirect("/register");
+    });
 });
 
 router.get("/qa", verifyLogin, (req, res) => {
