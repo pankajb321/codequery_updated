@@ -175,19 +175,21 @@ router.post("/post-ans", (req, res) => {
 
 router.get("/dummy/answers/:qnId", (req, res) => {
   let qnId = req.params.qnId;
-  functionHelper.getQuestion(qnId).then((question) => {
-    console.log(question);
-    functionHelper.getAnswers(qnId).then((answers) => {
-      answers = answers.reverse();
-      // console.log(answers);
-      if (answers.length === 0) {
-        res.render("dummy/answers", {
-          question,
-          empty_msg: "No answers yet for this question",
-        });
-      } else {
-        res.render("dummy/answers", { question, answers });
-      }
+  functionHelper.updateViewCount(qnId).then((response) => {
+    functionHelper.getQuestion(qnId).then((question) => {
+      console.log(question);
+      functionHelper.getAnswers(qnId).then((answers) => {
+        answers = answers.reverse();
+        // console.log(answers);
+        if (answers.length === 0) {
+          res.render("dummy/answers", {
+            question,
+            empty_msg: "No answers yet for this question",
+          });
+        } else {
+          res.render("dummy/answers", { question, answers });
+        }
+      });
     });
   });
 });
