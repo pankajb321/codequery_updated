@@ -476,3 +476,26 @@ footer {
 .text-white {
   color: #fff;
 }
+
+/* dummy */
+
+.dummy-qn-form {
+  background-color: rgb(224, 199, 199);
+}
+
+.dummy-qn-body,
+.empty-msg {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+.dummy-badge {
+  color: #fff;
+  background-color: rgb(48, 47, 47);
+  padding: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 5px;
+}
